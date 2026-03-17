@@ -3,16 +3,27 @@ User Stories:
 User Story 1
 As a horror game player 
 I want to touch objects that has a percentage chance to jumpscare by interacting with the object/touching the object 
-So that I can feel the adrenaline of jumpsacre
+So that I can feel the adrenaline of jumpscare
 
 User Story 2
 As a big fan of Halloween
 I want to experience the scare and adrenalin of this game,
 so that I can have a feel of this holiday the whole year.
 
+User Story 3
+As a admant game player there needs to be an end goal to this game.
+I want to win a prize for making it through all 10 levels without quitting or pausing.
+That way playing this game seems worth it and not just an adrenaline rush.
+
 Acceptance Criteria:
 
 A jumpscare when the user touches an object in the room. 
 A chance to add jumpscares in objects.
-Jumpscare images can be halloween related (blood, clowns, etc.) last 5 - 10 seconds
+Jumpscare images can be halloween related (blood, clowns, etc.) last 5 - 10 seconds.
+User will pass to next level in increments of 5 if jumpscare object not found in 3 clicks.
+Jump scares will intensify( ex level 1- move to level two after interacting with 5 objects, level 2- move to level 3 after
+interacting with 10 items, etc.)
+The program will choose the jump scare object at random. With error handler if the jumpscare object is not found in 3 clicks to continue until
+max incremented clicks have been reached.
+On final level user is rewarded with access code that allows sneak peak to upcoming horror games. 
 Display Menu before playing 
