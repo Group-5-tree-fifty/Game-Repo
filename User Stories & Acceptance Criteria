@@ -27,3 +27,6 @@ The program will choose the jump scare object at random. With error handler if t
 max incremented clicks have been reached.
 On final level user is rewarded with access code that allows sneak peak to upcoming horror games. 
 Display Menu before playing 
+
+User Story 4:
+As a user, I want a simple user interface where I can choose between different options, like "1", which can start up the horror game
