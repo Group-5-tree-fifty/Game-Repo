@@ -5,6 +5,17 @@ As a horror game player
 I want to touch objects that has a percentage chance to jumpscare by interacting with the object/touching the object 
 So that I can feel the adrenaline of jumpscare
 
+-Behavior:
+Have user navigate to group website
+User will click Horror game button
+Menu prompt
+User will input their name and age
+A warning message will appear for 20 seconds before beginning
+
+Deliverable:
+A user interface will ask name and age.
+Warning message will flash.
+
 User Story 2
 As a big fan of Halloween
 I want to experience the scare and adrenalin of this game,
