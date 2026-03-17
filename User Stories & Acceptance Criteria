@@ -6,6 +6,8 @@ I want to touch objects that has a percentage chance to jumpscare by interacting
 So that I can feel the adrenaline of jumpscare
 
 -Behavior:
+Double clickable java app
+Code that will run the following:
 Have user navigate to group website
 User will click Horror game button
 Menu prompt
@@ -13,8 +15,8 @@ User will input their name and age
 A warning message will appear for 20 seconds before beginning
 
 Deliverable:
-A user interface will ask name and age.
-Warning message will flash.
+Downloadble code
+Code they can run after downloading.
 
 User Story 2
 As a big fan of Halloween
