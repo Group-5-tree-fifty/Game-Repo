@@ -18,15 +18,28 @@ jobs:
 
     steps:
       - name: Checkout repo
+<<<<<<< HEAD
         uses: actions/checkout@v4
 
       - name: Setup Node
         uses: actions/setup-node@v4
+=======
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+>>>>>>> 38ab405 (fix workflow indentation and linux build)
         with:
           node-version: 20
 
       - name: Install dependencies
         run: npm install
+
+      - name: Install Linux dependencies
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libfuse2
 
       - name: Build Electron app
         run: npx electron-builder --publish never
