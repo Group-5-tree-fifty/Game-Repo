@@ -3,6 +3,8 @@ name: Build Electron App (All OS)
 on:
   push:
     branches: [main]
+    tags:
+      - "v*"
 
 jobs:
   build:
