@@ -11,22 +11,16 @@
         "electron-builder": "^26.8.1"
     },
     "build": {
-        "appId": "com.clickclickboo.app",
-        "productName": "Click Click Boo",
-        "directories": {
-            "output": "dist"
-        },
-        "files": [
-            "**/*"
-        ],
-        "mac": {
-            "target": "dmg"
-        },
-        "win": {
-            "target": "nsis"
-        },
-        "linux": {
-            "target": "AppImage"
-        }
+      "appId": "com.clickclickboo.app",
+      "productName": "Click Click Boo",
+      "directories": {
+        "output": "dist"
+      },
+      "files": [
+        "**/*"
+      ],
+      "mac": { "target": "dmg" },
+      "win": { "target": "nsis" },
+      "linux": { "target": "AppImage" }
     }
 }
