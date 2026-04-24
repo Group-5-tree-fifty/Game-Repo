@@ -1,5 +1,6 @@
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 name: Build Electron App (All OS)
 
 on:
@@ -18,17 +19,10 @@ jobs:
 
     steps:
       - name: Checkout repo
-
         uses: actions/checkout@v4
 
       - name: Setup Node
         uses: actions/setup-node@v4
-
-        uses: actions/checkout@v3
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
- 38ab405 (fix workflow indentation and linux build)
         with:
           node-version: 20
 
@@ -58,13 +52,15 @@ jobs:
     steps:
       - name: Download artifacts
         uses: actions/download-artifact@v4
+        with:
+          path: artifacts
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            **/*.exe
-            **/*.dmg
-            **/*.AppImage
+            artifacts/**/*.exe
+            artifacts/**/*.dmg
+            artifacts/**/*.AppImage
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
