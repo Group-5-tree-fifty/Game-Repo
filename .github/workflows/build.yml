@@ -1,3 +1,5 @@
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 name: Build Electron App (All OS)
 
 on:
@@ -16,10 +18,10 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 20
 
