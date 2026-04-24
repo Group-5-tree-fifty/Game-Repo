@@ -18,17 +18,17 @@ jobs:
 
     steps:
       - name: Checkout repo
-<<<<<<< HEAD
+
         uses: actions/checkout@v4
 
       - name: Setup Node
         uses: actions/setup-node@v4
-=======
+
         uses: actions/checkout@v3
 
       - name: Setup Node
         uses: actions/setup-node@v3
->>>>>>> 38ab405 (fix workflow indentation and linux build)
+ 38ab405 (fix workflow indentation and linux build)
         with:
           node-version: 20
 
