@@ -12,33 +12,43 @@
     overflow: hidden;
   }
 
-  img {
+  .container {
+    position: relative;
+    display: inline-block;
+  }
+
+  .container img {
     width: 60%;
     margin-top: 20px;
   }
 
   #startBtn {
-    padding: 15px 25px;
-    font-size: 18px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 30px;
+    font-size: 22px;
     background: crimson;
     color: white;
     border: none;
     cursor: pointer;
-    margin-top: 20px;
+    box-shadow: 0 0 20px red;
+    z-index: 10;
   }
 
   #hiddenBtn {
     position: absolute;
     width: 80px;
     height: 80px;
-    background: rgba(0,255,0,0.1); /* slight glow so it's findable */
+    background: rgba(0,255,0,0.15);
     border: 2px dashed #BCE954;
     display: none;
     cursor: pointer;
   }
 
   #info {
-    margin-top: 10px;
+    margin-top: 15px;
     font-size: 18px;
   }
 </style>
@@ -48,12 +58,13 @@
 
 <h1>GOTCHA!!!</h1>
 
-<img src="Crawling through shadows of horror.png">
+<div class="container">
+  <img src="Crawling through shadows of horror.png">
 
-<p>Something is watching you...</p>
+  <button id="startBtn" onclick="startGame()">▶ START</button>
+</div>
+
 <p id="info">Find the hidden box before time runs out!</p>
-
-<button id="startBtn" onclick="startGame()">Start</button>
 
 <div id="hiddenBtn"></div>
 
@@ -67,14 +78,14 @@ function startGame() {
   gameActive = true;
   document.getElementById("startBtn").style.display = "none";
 
-  moveButton();
   document.getElementById("hiddenBtn").style.display = "block";
 
-  countdown();
+  moveButton();
+  startTimer();
 }
 
-// countdown display
-function countdown() {
+// timer
+function startTimer() {
   let info = document.getElementById("info");
 
   timer = setInterval(() => {
@@ -88,7 +99,7 @@ function countdown() {
   }, 1000);
 }
 
-// move target
+// moving target
 function moveButton() {
   if (!gameActive) return;
 
