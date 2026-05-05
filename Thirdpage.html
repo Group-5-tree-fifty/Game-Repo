@@ -2,13 +2,132 @@
 <html>
 <head>
 <title>GOTCHA!!!</title>
+
+<style>
+  body {
+    background-color: black;
+    color: #BCE954;
+    text-align: center;
+    font-family: Creepster, sans-serif;
+    overflow: hidden;
+  }
+
+  img {
+    width: 60%;
+    margin-top: 20px;
+  }
+
+  #startBtn {
+    padding: 15px 25px;
+    font-size: 18px;
+    background: crimson;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+
+  #hiddenBtn {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: rgba(0,255,0,0.1); /* slight glow so it's findable */
+    border: 2px dashed #BCE954;
+    display: none;
+    cursor: pointer;
+  }
+
+  #info {
+    margin-top: 10px;
+    font-size: 18px;
+  }
+</style>
 </head>
- 
-<body style="background-color:black; color:#BCE954; text-align:top-center; font-family: Creepster, sans-serif;">
- 
- <img src="Crawling through shadows of horror.png"> 
-    
-    </a>
-  </p>
- 
+
+<body>
+
+<h1>GOTCHA!!!</h1>
+
+<img src="Crawling through shadows of horror.png">
+
+<p>Something is watching you...</p>
+<p id="info">Find the hidden box before time runs out!</p>
+
+<button id="startBtn" onclick="startGame()">Start</button>
+
+<div id="hiddenBtn"></div>
+
+<script>
+let gameActive = false;
+let timer;
+let timeLeft = 6;
+
+// start game
+function startGame() {
+  gameActive = true;
+  document.getElementById("startBtn").style.display = "none";
+
+  moveButton();
+  document.getElementById("hiddenBtn").style.display = "block";
+
+  countdown();
+}
+
+// countdown display
+function countdown() {
+  let info = document.getElementById("info");
+
+  timer = setInterval(() => {
+    timeLeft--;
+    info.innerText = "Time left: " + timeLeft + "s";
+
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      loseGame();
+    }
+  }, 1000);
+}
+
+// move target
+function moveButton() {
+  if (!gameActive) return;
+
+  let btn = document.getElementById("hiddenBtn");
+
+  btn.style.top = Math.random() * 80 + "%";
+  btn.style.left = Math.random() * 80 + "%";
+
+  setTimeout(moveButton, 700);
+}
+
+// win
+document.getElementById("hiddenBtn").onclick = function() {
+  gameActive = false;
+  clearInterval(timer);
+
+  document.body.innerHTML = `
+    <h1>You Escaped...</h1>
+    <button onclick="location.reload()">Play Again</button>
+  `;
+};
+
+// lose → jumpscare
+function loseGame() {
+  gameActive = false;
+
+  document.body.innerHTML = `
+    <img src="scary.jpg" style="width:100%; height:100vh;">
+    <audio autoplay src="scream.mp3"></audio>
+  `;
+}
+
+// flicker effect
+setInterval(() => {
+  document.body.style.background =
+    Math.random() > 0.95 ? "#200000" : "black";
+}, 120);
+
+</script>
+
+</body>
 </html>
